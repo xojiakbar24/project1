@@ -82,7 +82,7 @@
 		      	{% for i in shops %}
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
-							<img src="{% static 'images/product-3.png' %}" class="img-fluid product-thumbnail">
+							<img src="{{i.image.url}}" class="img-fluid product-thumbnail">
 							<h3 class="product-title">{{i.name.title}}</h3>
 							<strong class="product-price">${{i.price}}</strong>
 
