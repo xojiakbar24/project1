@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from apps.views import (IndexView, ShopView, AboutView, ServiceView, BlogView,
-                        ContactView, CartView, PaymentView, ThanksView, SignUpView,add_to_cart)
+                        ContactView, CartView, PaymentView, ThanksView,RegisterView, SignUpView,add_to_cart)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('cart', CartView.as_view() ,name='cart'),
     path('checkout', PaymentView.as_view(),name='checkout'),
     path('thanks', ThanksView.as_view(),name='thanks'),
-    path('signup',SignUpView.as_view(),name='signup'),
+    path('signup',RegisterView.as_view(),name='signup'),
     #  path('add-to-cart/<int:pk>/', add_to_cart, name='add_to_cart'),
 ]
 

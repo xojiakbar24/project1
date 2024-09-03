@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404, redirect
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView
 from httpx import post, get
 from .models import Product, Cart, CartItem
+from django.contrib.auth.models import User
+from .forms import UserRegistrationForm
 
 API_TOKEN = '7123965331:AAGZH1lPJvBchmB8ffsgtTu1uTdqvWx4Udc'
 
@@ -71,6 +73,13 @@ def add_to_cart(request, product_id):
     cart_item.quantity += 1
     cart_item.save()
     return redirect('cart_view')
+
+
+class RegisterView(CreateView):
+    model = User
+    form_class = UserRegistrationForm
+    template_name = 'signup.html'
+    success_url = '/'
 
 
 
